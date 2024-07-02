@@ -34,7 +34,7 @@ const Navbar: FC = () => {
   return (
     <div className=" w-full py-5 ">
       <Sheet>
-        <nav className="max-w-[90%] w-full mx-auto items-center flex justify-between">
+        <nav className="max-w-[90% container w-full mx-auto items-center flex justify-between">
           <div className="flex gap-2 items-center">
             <div className="flex lg:hidden">
               <SheetTrigger>
@@ -59,7 +59,7 @@ const Navbar: FC = () => {
               <Link
                 href={header.link}
                 className={cn(
-                  "font- font-[450] text-[14px] text-white tracking-wide whitespace-nowrap   leading-2 "
+                  "font- font-[500] text-[14px] text-white tracking-wide whitespace-nowrap   leading-2 "
                 )}
                 key={index}
               >
@@ -72,13 +72,13 @@ const Navbar: FC = () => {
               <Button className=" bg-transparent hover:bg-transparent border-accent_purple w-[80px] border-2 rounded-none rounded-tl-[8px] rounded-br-[8px] uppercase text-white font-medium text-sm ">
                 Login
               </Button>
-              <Button
-              className=" bg-accent_purple hover:bg-accent_purple w-[80px] border-none rounded-none rounded-tl-[8px] rounded-br-[8px] uppercase text-white font-medium text-sm "
-              >Register</Button>
+              <Button className=" bg-accent_purple hover:bg-accent_purple w-[80px] border-none rounded-none rounded-tl-[8px] rounded-br-[8px] uppercase text-white font-medium text-sm ">
+                Register
+              </Button>
             </div>
           </div>
         </nav>
-        <SheetOverlay className="fixed z-50 gap-4 bg-background p-6 shadow-lg transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:duration-500">
+        <SheetOverlay className="fixed z-50 gap-4 bg-accent_purple p-6 shadow-lg transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:duration-500">
           <SheetContent
             side={showSmSidebar ? "left" : "top"}
             className={` lg:hidden flex flex-col gap-5 ${
@@ -91,12 +91,16 @@ const Navbar: FC = () => {
                   <SheetClose>
                     <X className="h-6 w-6 text-white" />
                   </SheetClose>
-                  <Image src="/logo.svg" alt="logo" width={100} height={50} />
+                  <Image src="/logo.svg" alt="logo" width={200} height={120} />
                 </div>
                 {showMdSidebar && (
                   <div className="flex items-center gap-5">
-                    <Button>Login</Button>
-                    <Button>Register</Button>
+                    <Button className=" bg-transparent hover:bg-transparent border-accent_purple w-[80px] border-2 rounded-none rounded-tl-[8px] rounded-br-[8px] uppercase text-white font-medium text-sm ">
+                      Login
+                    </Button>
+                    <Button className=" bg-accent_purple hover:bg-accent_purple w-[80px] border-none rounded-none rounded-tl-[8px] rounded-br-[8px] uppercase text-white font-medium text-sm ">
+                      Register
+                    </Button>
                   </div>
                 )}
               </div>
@@ -111,7 +115,7 @@ const Navbar: FC = () => {
                 <Link
                   href={item.link}
                   key={index}
-                  className={`font-Jakarta max-w-fit text-white text-base font-[400] sm:text-xl sm:font-normal sm:leading-7 ${
+                  className={` max-w-fit text-white text-base font-[400] sm:text-xl sm:font-normal sm:leading-7 ${
                     showMdSidebar && " w-full text-center max-w-full"
                   } `}
                 >
@@ -121,8 +125,12 @@ const Navbar: FC = () => {
             </div>
             {showSmSidebar && (
               <div className="flex items-center gap-4">
-                <Button>Login</Button>
-                <Button>Register</Button>
+                <Button className=" bg-transparent hover:bg-transparent border-accent_purple w-[80px] border-2 rounded-none rounded-tl-[8px] rounded-br-[8px] uppercase text-white font-medium text-sm ">
+                  Login
+                </Button>
+                <Button className=" bg-accent_purple hover:bg-accent_purple w-[80px] border-none rounded-none rounded-tl-[8px] rounded-br-[8px] uppercase text-white font-medium text-sm ">
+                  Register
+                </Button>
               </div>
             )}
           </SheetContent>
