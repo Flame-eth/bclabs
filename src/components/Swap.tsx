@@ -2,6 +2,7 @@ import { swapData } from "@/constants";
 import { Bitcoin, Bolt, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import React from "react";
+import { Button } from "./ui/button";
 
 const Swap = () => {
   return (
@@ -51,10 +52,31 @@ const Swap = () => {
                 </div>
               ))}
             </div>
-              <Image src="/swap.svg" width={50} height={50} alt="swap" className=" absolute inset-0 top-0 bottom-0 left-0 right-0 m-auto" />
+            <Image
+              src="/swap.svg"
+              width={50}
+              height={50}
+              alt="swap"
+              className=" absolute inset-0 top-0 bottom-0 left-0 right-0 m-auto"
+            />
           </div>
-          <div className=""></div>
-          <div className=""></div>
+
+          <Button className=" bg-accent_purple hover:bg-accent_purple w-[250px] mx-auto border-none rounded-none rounded-tl-[8px] rounded-br-[8px] uppercase text-white font-medium text-sm ">
+            Swap tokens
+          </Button>
+          <div className="flex flex-col gap-5 md:flex-row justify-between items-center">
+            <div className="flex flex-col gap-2">
+              <p className=" text-sm text-[#fafafa] font-normal">
+                1 BTC = 32.4039 ETH
+              </p>
+              <span className=" text-sm text-accent_blue font-normal">
+                Free exchange
+              </span>
+            </div>
+            <div className=" text-sm text-[#666666] font-normal">
+              Updates in 4s
+            </div>
+          </div>
         </div>
       </div>
     </div>
