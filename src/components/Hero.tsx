@@ -2,7 +2,7 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <div className=" bg-transparent container  flex flex-col gap-5 justify-center items-center mt-20 max-w-[777px] ">
+    <div className=" bg-transparent container  flex flex-col gap-5 justify-center items-center lg:mt-10 max-w-[777px] ">
       <h1 className=" text-white font-normal text-[45px] lg:text-[68px] text-center tracking-tight leading-10 lg:leading-[78px]">
         Easy send and Request Crypto
       </h1>

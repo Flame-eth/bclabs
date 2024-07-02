@@ -57,7 +57,7 @@ const config = {
           foreground: "hsl(var(--card-foreground))",
         },
         accent_purple: "#9945FF",
-        accent_blue: "#3980FF"
+        accent_blue: "#3980FF",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -88,11 +88,11 @@ const config = {
     function ({ addUtilities }) {
       const newUtilities = {
         ".no-scrollbar::-webkit-scrollbar": {
-          display: "none",
+          display: "none !important",
         },
         ".no-scrollbar": {
-          "-ms-overflow-style": "none",
-          "scrollbar-width": "none",
+          "-ms-overflow-style": "none !important",
+          "scrollbar-width": "none !important",
         },
       };
       addUtilities(newUtilities);
