@@ -21,3 +21,24 @@ export const navbarHeaders: {
   },
 ];
 
+
+
+export const swapData: {
+  name: string;
+  balance: string;
+  placeholder: string;
+  icon: string;
+}[] = [
+  {
+    name: "BTC",
+    balance: "24,249",
+    placeholder: "0.00",
+    icon: "/btcIcon.svg",
+  },
+  {
+    name: "BNB",
+    balance: "63,790",
+    placeholder: "0.00",
+    icon: "/bnb.svg",
+  },
+];
