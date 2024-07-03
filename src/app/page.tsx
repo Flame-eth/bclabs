@@ -7,6 +7,7 @@ import React from "react";
 import handler from "./api/fetchAndStoreData";
 
 export default async function Home() {
+  // Fetch and store updated data on page load
 await handler();
   return (
     <main className="flex min-h-screen flex-col gap-10 items-center  bg-hero-bg bg-no-repeat no-scrollbar bg-top bg-contain mb-20">
