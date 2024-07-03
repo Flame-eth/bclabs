@@ -1,3 +1,4 @@
+"use client"
 import {
   Table,
   TableHeader,
@@ -6,12 +7,21 @@ import {
   TableBody,
   TableCell,
 } from "@/components/ui/table";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { ChevronRight } from "lucide-react";
+import useSWR from "swr";
+import { AssetType } from "@/types";
+
+const fetcher = (url: any) => fetch(url).then((res) => res.json());
 
 export default function Assets() {
+  const { data, error, isLoading } = useSWR("/api/assets", fetcher);
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error loading assets</div>;
+  if (data) console.log(data);
+
   return (
     <div className="border p-2 py-5 md:p-10 border-[#464646] rounded-lg w-full  container max-w-[90%] lg:max-w-[80%] bg-black/80 shadow-2xl no-scrollbar backdrop-filter backdrop-blur-lg bg-opacity-60 ">
       <Table className="hide-scrollbar::-webkit-scrollbar hide-scrollbar">
@@ -36,21 +46,21 @@ export default function Assets() {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {Array.from({ length: 5 }).map((_, index) => (
+          {data?.data?.length && data.data.map((asset: AssetType, index) => (
             <TableRow
               className="hover:bg-transparent border-none data-[state=selected]:bg-transparent"
               key={index}
             >
               <TableCell className=" w-fit  flex items-center gap-2 flex-shrink-0">
                 <Image
-                  src="/btc.svg"
+                  src={asset.image}
                   alt="Bitcoin"
                   width={64}
                   height={64}
                   className="rounded-md object-cover"
                 />
-                <p className="font-medium text-zinc-50 text-lg">
-                  BTC/<span className=" text-[#666666]">USD</span>
+                <p className="font-medium text-zinc-50 text-lg uppercase">
+                  {asset.symbol}/<span className=" text-[#666666]">USD</span>
                 </p>
               </TableCell>
               <TableCell className=" w-fit  font-medium text-zinc-50 text-lg">
