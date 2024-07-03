@@ -1,7 +1,6 @@
-import { AssetType } from "@/types";
-import { PrismaClient } from "@prisma/client";
-import type { NextApiRequest, NextApiResponse } from "next";
-import { NextResponse } from "next/server";
+import { AssetType } from '@/types';
+import { PrismaClient } from '@prisma/client';
+import { NextResponse } from 'next/server';
 
 const prisma = new PrismaClient();
 
@@ -14,10 +13,7 @@ const prisma = new PrismaClient();
 //     }
 // }
 
-export async function GET(
-  req: NextApiRequest,
-  res: NextApiResponse
-): Promise<any> {
+export async function GET(): Promise<any> {
   const assets: AssetType[] = await prisma.asset.findMany();
   return NextResponse.json(
     {
