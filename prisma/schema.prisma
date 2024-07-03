@@ -8,9 +8,13 @@ generator client {
 }
 
 model Asset {
-  id        Int     @id @default(autoincrement())
-  symbol    String
-  price     Float
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id             Int      @id @default(autoincrement())
+  symbol         String  @unique
+  price          Float
+  image          String
+  name           String
+  percentage_24H Float
+  price_24H      Float
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
 }
