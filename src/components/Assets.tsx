@@ -17,6 +17,7 @@ import { Skeleton } from "./ui/skeleton";
 
 const fetcher = (url: any) => fetch(url).then((res) => res.json());
 
+
 export default function Assets() {
   const { data, error, isLoading } = useSWR("/api/assets", fetcher);
 
