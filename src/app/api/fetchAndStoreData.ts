@@ -8,7 +8,7 @@ export default async function handler() {
     method: "GET",
     headers: {
       accept: "application/json",
-      "x-cg-demo-api-key": "CG-cGcgDUcQCpZTPurt9d3ihLak	",
+      "x-cg-demo-api-key": process.env.COIN_GECKO_API_KEY ?? "",
     },
     cache: "no-store",
   };

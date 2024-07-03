@@ -69,7 +69,7 @@ const Swap = () => {
               <p className=" text-sm text-[#fafafa] font-normal">
                 1 BTC = 32.4039 ETH
               </p>
-              <span className=" text-sm text-accent_blue font-normal">
+              <span className=" text-sm text-accent_blue text-center font-normal">
                 Free exchange
               </span>
             </div>

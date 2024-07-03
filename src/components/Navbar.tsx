@@ -1,7 +1,7 @@
-"use client";
-import { FC, useState } from "react";
-import { navbarHeaders } from "@/constants";
-import { cn } from "@/lib/utils";
+'use client';
+import { FC, useState } from 'react';
+import { navbarHeaders } from '@/constants';
+import { cn } from '@/lib/utils';
 import {
   Sheet,
   SheetClose,
@@ -9,11 +9,11 @@ import {
   SheetHeader,
   SheetOverlay,
   SheetTrigger,
-} from "./ui/sheet";
-import { Menu, X } from "lucide-react";
-import { Button } from "./ui/button";
-import Link from "next/link";
-import Image from "next/image";
+} from './ui/sheet';
+import { Menu, X } from 'lucide-react';
+import { Button } from './ui/button';
+import Link from 'next/link';
+import Image from 'next/image';
 
 const Navbar: FC = () => {
   const [showSmSidebar, setShowSmSidebar] = useState(false);
@@ -32,10 +32,10 @@ const Navbar: FC = () => {
   };
 
   return (
-    <div className=" w-full py-5 ">
+    <div className="w-full py-5">
       <Sheet>
-        <nav className="max-w-[90% container w-full mx-auto items-center flex justify-between">
-          <div className="flex gap-2 items-center">
+        <nav className="max-w-[90% container mx-auto flex w-full items-center justify-between">
+          <div className="flex items-center gap-2">
             <div className="flex lg:hidden">
               <SheetTrigger>
                 <Menu
@@ -51,15 +51,15 @@ const Navbar: FC = () => {
               alt="logo"
               width={200}
               height={120}
-              className=" object-cover"
+              className="object-cover"
             />
           </div>
-          <div className=" flex-1 hidden lg:flex items-center justify-between gap-5 max-w-fit ">
+          <div className="hidden max-w-fit flex-1 items-center justify-between gap-5 lg:flex">
             {navbarHeaders.map((header, index) => (
               <Link
                 href={header.link}
                 className={cn(
-                  "font- font-[500] text-[14px] text-white tracking-wide whitespace-nowrap   leading-2 "
+                  'font- leading-2 whitespace-nowrap text-[14px] font-[500] tracking-wide text-white'
                 )}
                 key={index}
               >
@@ -67,27 +67,27 @@ const Navbar: FC = () => {
               </Link>
             ))}
           </div>
-          <div className="flex ">
-            <div className="hidden sm:flex items-center gap-5">
-              <Button className=" bg-transparent hover:bg-transparent border-accent_purple w-[80px] border-2 rounded-none rounded-tl-[8px] rounded-br-[8px] uppercase text-white font-medium text-sm ">
+          <div className="flex">
+            <div className="hidden items-center gap-5 sm:flex">
+              <Button className="w-[80px] rounded-none rounded-br-[8px] rounded-tl-[8px] border-2 border-accent_purple bg-transparent text-sm font-medium uppercase text-white hover:bg-transparent">
                 Login
               </Button>
-              <Button className=" bg-accent_purple hover:bg-accent_purple w-[80px] border-none rounded-none rounded-tl-[8px] rounded-br-[8px] uppercase text-white font-medium text-sm ">
+              <Button className="w-[80px] rounded-none rounded-br-[8px] rounded-tl-[8px] border-none bg-accent_purple text-sm font-medium uppercase text-white hover:bg-accent_purple">
                 Register
               </Button>
             </div>
           </div>
         </nav>
-        <SheetOverlay className="fixed z-50 gap-4 bg-accent_purple p-6 shadow-lg transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:duration-500">
+        <SheetOverlay className="fixed z-50 gap-4 bg-accent_purple p-6 shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500 data-[state=open]:animate-in data-[state=closed]:animate-out">
           <SheetContent
-            side={showSmSidebar ? "left" : "top"}
-            className={` lg:hidden flex flex-col gap-5 ${
-              (showSmSidebar || showMdSidebar) && "bg-overlay/50"
+            side={showSmSidebar ? 'left' : 'top'}
+            className={`flex flex-col gap-5 lg:hidden ${
+              (showSmSidebar || showMdSidebar) && 'bg-overlay/50'
             }`}
           >
             <SheetHeader className="flex flex-col gap-5">
-              <div className="flex justify-between items-center">
-                <div className="flex gap-3 items-center ">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
                   <SheetClose>
                     <X className="h-6 w-6 text-white" />
                   </SheetClose>
@@ -95,28 +95,28 @@ const Navbar: FC = () => {
                 </div>
                 {showMdSidebar && (
                   <div className="flex items-center gap-5">
-                    <Button className=" bg-transparent hover:bg-transparent border-accent_purple w-[80px] border-2 rounded-none rounded-tl-[8px] rounded-br-[8px] uppercase text-white font-medium text-sm ">
+                    <Button className="w-[80px] rounded-none rounded-br-[8px] rounded-tl-[8px] border-2 border-accent_purple bg-transparent text-sm font-medium uppercase text-white hover:bg-transparent">
                       Login
                     </Button>
-                    <Button className=" bg-accent_purple hover:bg-accent_purple w-[80px] border-none rounded-none rounded-tl-[8px] rounded-br-[8px] uppercase text-white font-medium text-sm ">
+                    <Button className="w-[80px] rounded-none rounded-br-[8px] rounded-tl-[8px] border-none bg-accent_purple text-sm font-medium uppercase text-white hover:bg-accent_purple">
                       Register
                     </Button>
                   </div>
                 )}
               </div>
-              <div className="  bg-gradient-href-r from-home_border_gradient_color_1 href-home_border_gradient_color_2 tr w-full h-[1px]"></div>
+              <div className="bg-gradient-href-r from-home_border_gradient_color_1 href-home_border_gradient_color_2 tr h-[1px] w-full"></div>
             </SheetHeader>
             <div
-              className={`flex flex-col gap-5 mt-10 ${
-                showMdSidebar && " w-full text-center justify-center"
+              className={`mt-10 flex flex-col gap-5 ${
+                showMdSidebar && 'w-full justify-center text-center'
               }`}
             >
               {navbarHeaders.map((item, index) => (
                 <Link
                   href={item.link}
                   key={index}
-                  className={` max-w-fit text-white text-base font-[400] sm:text-xl sm:font-normal sm:leading-7 ${
-                    showMdSidebar && " w-full text-center max-w-full"
+                  className={`max-w-fit text-base font-[400] text-white sm:text-xl sm:font-normal sm:leading-7 ${
+                    showMdSidebar && 'w-full max-w-full text-center'
                   } `}
                 >
                   <SheetClose>{item.name}</SheetClose>
@@ -125,10 +125,10 @@ const Navbar: FC = () => {
             </div>
             {showSmSidebar && (
               <div className="flex items-center gap-4">
-                <Button className=" bg-transparent hover:bg-transparent border-accent_purple w-[80px] border-2 rounded-none rounded-tl-[8px] rounded-br-[8px] uppercase text-white font-medium text-sm ">
+                <Button className="w-[80px] rounded-none rounded-br-[8px] rounded-tl-[8px] border-2 border-accent_purple bg-transparent text-sm font-medium uppercase text-white hover:bg-transparent">
                   Login
                 </Button>
-                <Button className=" bg-accent_purple hover:bg-accent_purple w-[80px] border-none rounded-none rounded-tl-[8px] rounded-br-[8px] uppercase text-white font-medium text-sm ">
+                <Button className="w-[80px] rounded-none rounded-br-[8px] rounded-tl-[8px] border-none bg-accent_purple text-sm font-medium uppercase text-white hover:bg-accent_purple">
                   Register
                 </Button>
               </div>
